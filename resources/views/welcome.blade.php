@@ -1,98 +1,168 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('app')
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+@section('content')
+<section id="home" class="naked">
+    <div class="fullscreenbanner-container revolution">
+        <div class="fullscreenbanner">
+            <ul>
+                <li data-transition="fade">
+                    <img src="{{asset('style/images/back.jpg')}}"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="repeat">
+                    <h1 style="margin-top: -25px" class="tp-caption caption large sfb" data-x="center" data-y="center" data-voffset="-25" data-speed="900" data-start="1000" data-endspeed="100" data-easing="Sine.easeOut">Hello! Welcome to my website</h1>
+                    <div style="margin-top: -25px" class="tp-caption small tp-fade fadeout tp-resizeme" data-x="center" data-y="center" data-voffset="25" data-speed="100"
+                    data-start="1500"
+                    data-easing="Power4.easeOut"
+                    data-splitin="chars"
+                    data-splitout="chars"
+                    data-elementdelay="0.03"
+                    data-endelementdelay="0"
+                    data-endspeed="100"
+                    data-endeasing="Power1.easeOut"
+                    style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">My name is Mike Santos, i'm a web & mobile developer</div>
+                    <div class="arrow smooth"><a href="#about"><i class="icon-down-open-big"></i></a></div>
+                </li>
+            </ul>
+            <div class="tp-bannertimer"></div>
+        </div>
+    </div>
+</section>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+<div class="container">
+    <section id="about">
+        <div class="box">
+            <h2 class="section-title">About me</h2>
+            <div class="row">
+                <!-- <div class="col-md-5 col-md-push-7 col-sm-12">
+                    <figure class="frame"><img src="style/images/art/about.jpg" alt="" /></figure>
+                </div> -->
+                <div class="col-sm-12">
+                    <p class="lead">
+                        Hi, my name is Mike Santos, i have 20(twenty) years old, i'm brazilian, currently i study Computer Science, Computer engineering and database in college (triple graduation).
+                    </p>
+                    <p>
+                        I already developer there is 11 (eleven) years. I have 7 years of experience working as developer. I started with web development. Currently i study new tecnologies with JavaScript, I'm professionalizing in the areas of JavaScript, like NodeJS, VueJS, ReactJS. Currently i use Ionic Framework, Quasar Framework and Laravel Framework to web and mobile development.
+                    </p>
+                    <p>
 
-            .full-height {
-                height: 100vh;
-            }
+                    </p>
+                    <p>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+                    </p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="divide40"></div>
+            <h2 class="section-title">My Skills</h2>
+            <div class="divide10"></div>
+            <div class="services-1">
+                <div class="row">
 
-            .position-ref {
-                position: relative;
-            }
+                    @php
+                        $counter = 0;
+                    @endphp
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                    @foreach($skills as $skill)
+                        @if($counter == 4)
+                            <div class="divide30"></div>
+                            @php
+                                $counter = 0;
+                            @endphp
+                        @else
+                            @php
+                                $counter++;
+                            @endphp
                         @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="icon">
+                                <i class="devicon-{{$skill['icon']}}-plain font40"></i>
+                            </div>
+                            <div class="text">
+                                <h5>{{$skill['name']}}</h5>
+                                <p>{{$skill['experience']}}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </section>
+
+    <section id="contact">
+        <div class="box">
+            <h2 class="section-title">Get in Touch with Me</h2>
+            <div class="divide20"></div>
+            <div class="row text-center services-2">
+                <div class="col-md-4 col-sm-6">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <p>
+                        +1 (209) 210-4976 <br>
+                        +55 (92) 9 9410-2220
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                    <p>
+                        +1 (209) 210-4976 <br>
+                        +55 (92) 9 9410-2220
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6"> <i class="budicon-mail"></i>
+                    <p>
+                        <a class="nocolor" href="mailto:contato.mikesantos@gmail.com">contato.mikesantos@gmail.com</a> <br />
+                        <a class="nocolor" href="mailto:mike@storedev.net">mike@storedev.net</a>
+                    </p>
+                </div>
+            </div>
+            <div class="divide30"></div>
+            <div class="form-container">
+                <div class="response alert alert-success"></div>
+                <form class="forms" action="{{route('api.mail.contact')}}" method="post">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-row text-input-row name-field">
+                                    <label>Name</label>
+                                    <input type="text" name="name" class="text-input defaultText required"/>
+                                </div>
+                                <div class="form-row text-input-row email-field">
+                                    <label>Email</label>
+                                    <input type="text" name="email" class="text-input defaultText required email"/>
+                                </div>
+                                <div class="form-row text-input-row subject-field">
+                                    <label>Subject</label>
+                                    <input type="text" name="subject" class="text-input defaultText required"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 lp5">
+                                <div class="form-row text-area-row">
+                                    <label>Message</label>
+                                    <textarea name="message" class="text-area required"></textarea>
+                                </div>
+                                <div class="form-row hidden-row">
+                                    <input type="hidden" name="hidden" value="" />
+                                </div>
+                                <div class="nocomment">
+                                    <label for="nocomment">Leave This Field Empty</label>
+                                    <input id="nocomment" value="" name="nocomment" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="button-row pull-right">
+                                    <input type="submit" value="Send Message" name="submit" class="btn btn-submit bm0" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6 lp5">
+                                <div class="button-row pull-left">
+                                    <input type="reset" value="Clear all" name="reset" class="btn btn-submit bm0" />
+                                </div>
+                            </div>
+                            <input type="hidden" name="v_error" id="v-error" value="Required" />
+                            <input type="hidden" name="v_email" id="v-email" value="Enter a valid email" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+@endsection
