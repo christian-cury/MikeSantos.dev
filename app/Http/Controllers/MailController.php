@@ -44,7 +44,7 @@ class MailController extends Controller
             ]);
 
         }else{
-            return null;
+            return abort(404);
         }
     }
 }
