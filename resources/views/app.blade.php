@@ -42,7 +42,7 @@
                         <li class="current"><a href="#home">Home</a></li>
                         <li><a href="#about">About me</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="{{route('blog')}}">Blog</a></li>
+                        <li><a href="{{route('blog')}}" onclick="alert('Em desenvolvimento. 80%'); return false;">Blog</a></li>
                         <li><a href="#elsewhere" class="fancybox-inline" data-fancybox-width="325" data-fancybox-height="220"><i class="icon-heart-1"></i><span>Elsewhere</span></a></li>
                     </ul>
                 </div>
@@ -68,13 +68,8 @@
             <footer class="footer box">
                 <p class="pull-left">© 2018 StoreDev. All rights reserved. Theme by <a href="http://elemisfreebies.com/" target="_blank">elemis</a>.</p>
                 <ul class="social pull-right">
-                    <li><a href="#"><i class="icon-s-rss"></i></a></li>
-                    <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-                    <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-                    <li><a href="#"><i class="icon-s-instagram"></i></a></li>
-                    <li><a href="#"><i class="icon-s-vimeo"></i></a></li>
+                    <li><a href="https://github.com/christiancuri" target="_blank"><i class="icon-s-github"></i></a></li>
+                    <li><a href="https://twitter.com/_mikesantos_" target="_blank"><i class="icon-s-twitter"></i></a></li>
                 </ul>
                 <div class="clearfix"></div>
             </footer>
