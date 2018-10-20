@@ -16,7 +16,7 @@ class Posts extends Migration
         Schema::create('posts', function(Blueprint $table){
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->string('title');
             $table->longText('body');
             $table->boolean('active');

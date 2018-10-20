@@ -8,8 +8,12 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Image;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Illuminate\Support\Facades\Storage;
+
 
 class Post extends Resource
 {
@@ -51,13 +55,13 @@ class Post extends Resource
             Text::make('Title')
                 ->sortable()
                 ->rules('required', 'max:255'),
-            Markdown::make('Body'),
+            Trix::make('Body'),
             Boolean::make('Active')
         ];
     }
 
     private function photoField(){
-        
+
         return Image::make('Photo')
                 ->store(function($request){
                     return $this->storePhoto($request);
