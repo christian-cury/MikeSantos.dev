@@ -42,7 +42,7 @@
                         <li class="current"><a href="#home">Home</a></li>
                         <li><a href="#about">About me</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="{{route('blog')}}" onclick="alert('Em desenvolvimento. 80%'); return false;">Blog</a></li>
+                        <li><a href="{{route('blog')}}">Blog</a></li>
                         <li><a href="#elsewhere" class="fancybox-inline" data-fancybox-width="325" data-fancybox-height="220"><i class="icon-heart-1"></i><span>Elsewhere</span></a></li>
                     </ul>
                 </div>
