@@ -51,7 +51,7 @@
                     <li><a href="#" class="btn"><span>3</span></a></li>
                     <li><a href="#" class="btn">Next</a></li>
                 </ul> -->
-                {{ $posts->links('dark') }}
+                {{ $posts->links('pagination_dark') }}
             </div>
             <!-- /.pagination -->
         </div>

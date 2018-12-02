@@ -39,11 +39,24 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="current"><a href="#home">Home</a></li>
-                        <li><a href="#about">About me</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="{{route('blog')}}">Blog</a></li>
-                        <li><a href="#elsewhere" class="fancybox-inline" data-fancybox-width="325" data-fancybox-height="220"><i class="icon-heart-1"></i><span>Elsewhere</span></a></li>
+                        <li class="{{ Request::is('/') ? 'current' : '' }}">
+                            <a href="{{ Request::is('/') ? '' : '/'  }}#home">Home</a>
+                        </li>
+                        <li>
+                            <a href="{{ Request::is('/') ? '' : '/'  }}#about">About me</a>
+                        </li>
+                        <li>
+                            <a href="{{ Request::is('/') ? '' : '/'  }}#contact">Contact</a>
+                        </li>
+                        <li class="{{ Request::is('blog*') ? 'current' : '' }}">
+                            <a href="{{route('blog')}}">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#elsewhere" class="fancybox-inline" data-fancybox-width="325" data-fancybox-height="220">
+                                <i class="icon-heart-1"></i>
+                                <span>Elsewhere</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div id="elsewhere" style="display:none;">
