@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/blog', 'BlogController@home')->name('blog');
 
 Route::get('/blog/details/{id}/{title}', 'BlogController@show')->name('blog.post');
+
+Route::get('/cielo', 'BlogController@payment');
